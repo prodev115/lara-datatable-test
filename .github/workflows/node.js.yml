@@ -23,11 +23,13 @@ jobs:
         cat .env
 
     - name: 📂 Sync files
-      uses: milanmk/actions-file-deployer@master
+      uses: Dylan700/sftp-upload-action@latest
       with:
-        remote-protocol: "sftp"
-        remote-host: "49.13.140.177"
-        remote-user: "root"
-        remote-password: "t4hMbqmX4kmgmnXaiUKm"
-        remote-path: "/var/www"
+        server: 49.13.140.177
+        username: root
+        password: t4hMbqmX4kmgmnXaiUKm
+        port: 22
+        uploads: |
+          ./ => /var/www/
+      
 
