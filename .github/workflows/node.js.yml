@@ -25,7 +25,9 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ftp://49.13.140.177
+        server: 49.13.140.177
         username: root
         password: t4hMbqmX4kmgmnXaiUKm
+        protocol: ftps
+        port: 22
         #server-dir: public_html/www/dar/
