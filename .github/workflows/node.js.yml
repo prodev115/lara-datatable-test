@@ -29,5 +29,5 @@ jobs:
         remote-host: "49.13.140.177"
         remote-user: "root"
         remote-password: "t4hMbqmX4kmgmnXaiUKm"
-        remote-path: "public_html/www/dar/"
+        remote-path: "/var/www"
 
