@@ -23,11 +23,11 @@ jobs:
         cat .env
 
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      uses: milanmk/actions-file-deployer@master
       with:
-        server: 49.13.140.177
-        username: root
-        password: t4hMbqmX4kmgmnXaiUKm
-        protocol: ftps
-        port: 22
-        #server-dir: public_html/www/dar/
+        remote-protocol: "sftp"
+        remote-host: "49.13.140.177"
+        remote-user: "root"
+        remote-password: "t4hMbqmX4kmgmnXaiUKm"
+        remote-path: "public_html/www/dar/"
+
