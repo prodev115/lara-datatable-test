@@ -1,0 +1,31 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Create env file
+      run: |
+        touch .env
+        echo REACT_APP_CONTROL_API_BASE=https://app.leak.center >> .env
+        echo REACT_APP_CONTROL_API_CLIENT_ID=ui-saas >> .env
+        echo REACT_APP_CONTROL_API_CLIENT_SECRET=resent-pard-acerbic-cortices >> .env
+        echo REACT_APP_CONTROL_API_USER_NAME=${{ secrets.CONTROL_API_USER_NAME }} >> .env
+        echo REACT_APP_CONTROL_API_PASSWORD=${{ secrets.CONTROL_API_PASSWORD }} >> .env
+        echo REACT_APP_VALIDATION_SERVER_URL=https://validation.darknetsearch.com/api >> .env
+        cat .env
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: 49.13.140.177
+        username: root
+        password: t4hMbqmX4kmgmnXaiUKm
+        server-dir: public_html/www/dar/
